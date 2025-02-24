@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Asp.net + Angular Train For Reza\\SadidServices\\SadidServices.csproj": {}
+    "e:\\Asp.net + Angular Train For Reza\\SadidServices\\SadidServices.csproj": {}
   },
   "projects": {
-    "E:\\Asp.net + Angular Train For Reza\\SadidServices\\SadidServices.csproj": {
+    "e:\\Asp.net + Angular Train For Reza\\SadidServices\\SadidServices.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Asp.net + Angular Train For Reza\\SadidServices\\SadidServices.csproj",
+        "projectUniqueName": "e:\\Asp.net + Angular Train For Reza\\SadidServices\\SadidServices.csproj",
         "projectName": "SadidServices",
-        "projectPath": "E:\\Asp.net + Angular Train For Reza\\SadidServices\\SadidServices.csproj",
+        "projectPath": "e:\\Asp.net + Angular Train For Reza\\SadidServices\\SadidServices.csproj",
         "packagesPath": "C:\\Users\\Hich Hich Hich\\.nuget\\packages\\",
-        "outputPath": "E:\\Asp.net + Angular Train For Reza\\SadidServices\\obj\\",
+        "outputPath": "e:\\Asp.net + Angular Train For Reza\\SadidServices\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -53,7 +53,7 @@
           "dependencies": {
             "CSharpFunctionalExtensions": {
               "target": "Package",
-              "version": "[3.4.3, )"
+              "version": "[3.5.1, )"
             },
             "Carter": {
               "target": "Package",

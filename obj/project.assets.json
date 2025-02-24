@@ -84,7 +84,7 @@
           }
         }
       },
-      "CSharpFunctionalExtensions/3.4.3": {
+      "CSharpFunctionalExtensions/3.5.1": {
         "type": "package",
         "compile": {
           "lib/net8.0/CSharpFunctionalExtensions.dll": {
@@ -1412,14 +1412,14 @@
         "lib/netstandard2.0/Carter.Analyzers.pdb"
       ]
     },
-    "CSharpFunctionalExtensions/3.4.3": {
-      "sha512": "q2b5Zf2FGON2E3ti8J784x7Ov4b5b+uwi1wfMNCK12BOakJSLT4TwRSxg1j8KLtCOIeFpcO5TBR0eZZBL9wR0Q==",
+    "CSharpFunctionalExtensions/3.5.1": {
+      "sha512": "J9wNzOzRdc4pfO3WREYR19zjp585y7/y9TKQXKkbxxnXt7N6h2Q8AjP0+bayrgRVxpU9COaFMA8961xbptYsUg==",
       "type": "package",
-      "path": "csharpfunctionalextensions/3.4.3",
+      "path": "csharpfunctionalextensions/3.5.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "csharpfunctionalextensions.3.4.3.nupkg.sha512",
+        "csharpfunctionalextensions.3.5.1.nupkg.sha512",
         "csharpfunctionalextensions.nuspec",
         "lib/net6.0/CSharpFunctionalExtensions.dll",
         "lib/net6.0/CSharpFunctionalExtensions.pdb",
@@ -4340,7 +4340,7 @@
   },
   "projectFileDependencyGroups": {
     "net9.0": [
-      "CSharpFunctionalExtensions >= 3.4.3",
+      "CSharpFunctionalExtensions >= 3.5.1",
       "Carter >= 9.0.0",
       "Mapster >= 7.4.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 9.0.2",
@@ -4401,7 +4401,7 @@
         "dependencies": {
           "CSharpFunctionalExtensions": {
             "target": "Package",
-            "version": "[3.4.3, )"
+            "version": "[3.5.1, )"
           },
           "Carter": {
             "target": "Package",
