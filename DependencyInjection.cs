@@ -25,9 +25,10 @@ namespace SadidServices
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
             services.AddCarter();
-            services.AddSingleton<ICoilRepository, CoilRepository>(); //this is how we inject dependancys
-            services.AddSingleton<ICoilManager, CoilManager>();
+            services.AddScoped<ICoilRepository, CoilRepository>(); //this is how we inject dependancys
+            services.AddScoped<ICoilManager, CoilManager>();
             services.AddSingleton<IEmailService, EmailService>();
+            services.AddProblemDetails();
             services.AddDbContext<CatalogContext>(optionsBuilder =>
             {
                 var cnnStr = configuration.GetConnectionString("SadidTest");

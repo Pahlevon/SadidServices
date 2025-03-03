@@ -10,6 +10,7 @@ namespace SadidServices.Materials.Infrastructure.Persistence.Configurations
 {
     //! This is A Config For EF Core To Interact With Database And Coil.
     public class CoilConfiguration : IEntityTypeConfiguration<Coil>  //This is How We Inject Entity Framework into Our Project
+    //! And This is How We Use ConfigurationFromAssambly For Entities.
     {
         public void Configure(EntityTypeBuilder<Coil> builder)
         {

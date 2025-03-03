@@ -1,50 +1,62 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using SadidServices.Materials.Shared.Primitives;
 using SadidServices.Materials.Shared.Primitives.Contracts;
 
 namespace SadidServices.Materials.Infrastructure.Persistance.Repositories
 {
     //! SQL Server - Oracle - MongoDB or ...
+    //! Using SQL Repository
     public abstract class Repository<TEntity, TId> : IRepository<TEntity, TId>
     where TEntity : Entity<TId>
     where TId : notnull
     {
-        private Dictionary<TId, TEntity> storage = new();
-
-        public Task<TId> AddAsync(TEntity entity)
+        //! First Step For Connecting into SQL is Injection DbContext into our Class:
+        private DbContext _context;
+        private DbSet<TEntity> _set;
+        //! inject Context and Set to Constructor:
+        public Repository(DbContext context)
         {
-            storage.Add(entity.Id, entity);
-            return Task.FromResult(entity.Id);
+            _context = context;
+            _set = context.Set<TEntity>();
         }
 
-        public Task DeleteAsync(TEntity entity)
+        public async Task<TId> AddAsync(TEntity entity)
         {
-            storage.Remove(entity.Id);
-            return Task.CompletedTask;
+            await _set.AddAsync(entity);
+            await _context.SaveChangesAsync();
+            return entity.Id;
         }
 
-        public Task<IEnumerable<TEntity>> FindAsync(Func<TEntity, bool> predicate)
+        public async Task DeleteAsync(TEntity entity)
         {
-            return Task.FromResult(storage.Values.Where(predicate));
+            _set.Remove(entity);
+            await _context.SaveChangesAsync();
+
         }
 
-        public Task<TEntity?> GetByIdAsync(TId id)
+        public async Task<IReadOnlyList<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate)
         {
-            if (storage.ContainsKey(id))
-            {
-                var entity = storage[id];
-                return Task.FromResult(entity);
-            }
-            return Task.FromResult(default(TEntity));
+            //return await _set.Where(predicate).ToListAsync(); Better Performance use AsNoTracking :
+            return await _set.AsNoTracking().Where(predicate).ToListAsync();
         }
 
-        public Task UpdateAsync(TEntity entity)
+        public async Task<TEntity?> GetByIdAsync(TId id)
         {
-            storage[entity.Id] = entity;
-            return Task.CompletedTask;
+            return await _set.FindAsync(id);
+        }
+
+        public async Task UpdateAsync(TEntity entity)
+        {
+            var entry = _context.Entry(entity);
+            entry.State = EntityState.Modified;
+
+            await _context.SaveChangesAsync();
+
         }
     }
 }
