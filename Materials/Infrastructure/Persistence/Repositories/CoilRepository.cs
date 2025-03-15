@@ -9,6 +9,6 @@ namespace SadidServices.Materials.Infrastructure.Persistance.Repositories
 {
     public class CoilRepository : Repository<Coil,Guid> , ICoilRepository
     {
-        public CoilRepository(CatalogContext context):base(context){   }
+        public CoilRepository(MaterialsContext context):base(context){   }
     }
 }

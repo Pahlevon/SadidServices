@@ -18,22 +18,14 @@ namespace SadidServices.Materials.Infrastructure.Persistence.Configurations
             builder.HasKey(c => c.Id);
             builder.Property(c => c.Id).ValueGeneratedNever();
             builder.Property(c => c.Serial).HasMaxLength(100).IsRequired();
-            builder.Property(c => c.SadidWeight).HasMaxLength(100).HasPrecision(8,0).IsRequired();
+            builder.Property(c => c.SadidWeight).HasMaxLength(100).IsRequired(); // Removed HasPrecision
             builder.Property(c => c.Owner).HasMaxLength(100).IsUnicode().IsRequired();
             builder.Property(c => c.Type).HasMaxLength(50).IsRequired();
-            builder.Property(c => c.Size).HasMaxLength(100).HasPrecision(8,0).IsRequired();
+            builder.Property(c => c.Size).HasMaxLength(100).IsRequired();
             builder.Property(c => c.TimeReceive).HasMaxLength(100).IsRequired();
             builder.Property(c => c.Description).HasMaxLength(250).IsRequired(false).IsUnicode();
-            builder.Property(c=> c.Melt).IsRequired(false).HasPrecision(8,0);
-            builder.Property(c=> c.OwnerWeight).IsRequired(false).HasPrecision(8,0);
-          //? Other Properties
-
-
-
-
-
-
-
+            builder.Property(c => c.Melt).IsRequired(false);
+            builder.Property(c => c.OwnerWeight).IsRequired(true); // Removed HasPrecision
         }
     }
 }

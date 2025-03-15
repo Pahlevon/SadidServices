@@ -29,7 +29,7 @@ namespace SadidServices
             services.AddScoped<ICoilManager, CoilManager>();
             services.AddSingleton<IEmailService, EmailService>();
             services.AddProblemDetails();
-            services.AddDbContext<CatalogContext>(optionsBuilder =>
+            services.AddDbContext<MaterialsContext>(optionsBuilder =>
             {
                 var cnnStr = configuration.GetConnectionString("SadidTest");
                 optionsBuilder.UseSqlServer(cnnStr);

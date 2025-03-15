@@ -9,13 +9,13 @@ using SadidServices.Materials.Infrastructure.Persistence.Configurations;
 namespace SadidServices.Materials.Infrastructure.Persistence
 {
     //! This Class should Interact with Configurations
-    public class CatalogContext : DbContext
+    public class MaterialsContext : DbContext
     {
         //? SQL Server Address => Connection String (UserId , Password, Server, Database)
         //? Developing SQL Server Address => Connection String (UserId , Password, Server, Database)
         // Injecting Option Pattern To Proive String For CatalogContext. DbContextOptions Is For EF Options.
         //First Using Constructor
-        public CatalogContext(DbContextOptions<CatalogContext> options) : base(options)
+        public MaterialsContext(DbContextOptions<MaterialsContext> options) : base(options)
         {
             // Now We Can Send With option to Parent.
             //Addding New Service into DI.
